@@ -10,7 +10,7 @@
 <hr>
 <ListGroup Flush>
 	<ListGroupItem>
-		<Link To="/GoGDL" Class="list-group-item list-group-item-action">
+		<Link To="@(Utils.getURL("/GoGDL"))" Class="list-group-item list-group-item-action">
 			<Div Flex="Flex.JustifyContent.Between" Width="Width.Is100">
 				<Heading Size="HeadingSize.Is5" Margin="Margin.Is1.FromBottom">GoGDL</Heading>
 				<Small>5 years ago</Small>
@@ -23,7 +23,7 @@
 		</Link>		
 	</ListGroupItem>
 	<ListGroupItem>
-		<Link To="/Blog" Class="list-group-item list-group-item-action">
+		<Link To="@(Utils.getURL("/Blog"))" Class="list-group-item list-group-item-action">
 			<Div Flex="Flex.JustifyContent.Between" Width="Width.Is100">
 				<Heading Size="HeadingSize.Is5" Margin="Margin.Is1.FromBottom">My Developer portafolio</Heading>
 				<Small>In development</Small>

@@ -20,7 +20,7 @@
 <p>I currently use it at my work.</p>
 
 <div class="list-group">
-	<Link To="/Blog" Class="list-group-item list-group-item-action">
+	<Link To="@(Utils.getURL("/Blog"))" Class="list-group-item list-group-item-action">
 	My Developer Portafolio
 	</Link>
 </div>
@@ -34,7 +34,8 @@
 
 <h6>Related work</h6>
 <div class="list-group">
-    <Link To="/GoGDL" Class="list-group-item list-group-item-action">    
-		GoGDL
+	<Link To="@(Utils.getURL("/GoGDL"))" Class="list-group-item list-group-item-action">
+	GoGDL
     </Link>   
 </div>
+
