@@ -1,0 +1,41 @@
+﻿@page "/Projects"
+
+<PageTitle>Projects</PageTitle>
+
+<div class="d-flex titulo">
+	<img src="https://img.icons8.com/ios-filled/50/000000/group-of-projects.png" alt="projects" width="50" height="50" />
+	<h3 class="ms-4">My projects</h3>
+</div>
+
+<hr>
+<ListGroup Flush>
+	<ListGroupItem>
+		<Link To="/GoGDL" Class="list-group-item list-group-item-action">
+			<Div Flex="Flex.JustifyContent.Between" Width="Width.Is100">
+				<Heading Size="HeadingSize.Is5" Margin="Margin.Is1.FromBottom">GoGDL</Heading>
+				<Small>5 years ago</Small>
+			</Div>
+			<Paragraph Margin="Margin.Is1.FromBottom">
+				When I was in highschool i made a project to get a tecnichal title,
+				that project was a web page to find interesting places to eat, drink, etc.
+				Unfortunately, we didn't continue with it.
+			</Paragraph>			
+		</Link>		
+	</ListGroupItem>
+	<ListGroupItem>
+		<Link To="/Blog" Class="list-group-item list-group-item-action">
+			<Div Flex="Flex.JustifyContent.Between" Width="Width.Is100">
+				<Heading Size="HeadingSize.Is5" Margin="Margin.Is1.FromBottom">My Developer portafolio</Heading>
+				<Small>In development</Small>
+			</Div>
+			<Paragraph Margin="Margin.Is1.FromBottom">
+				It is the page you are in right now. I plan to add more stuff and keep it updated.
+				I decided o do it in this page because in my current job I am using blazor and I liked it a lot.
+			</Paragraph>			
+		</Link>				
+	</ListGroupItem>
+</ListGroup>
+
+@code {
+
+}

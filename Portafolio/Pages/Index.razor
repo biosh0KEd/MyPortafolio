@@ -1,6 +1,7 @@
 ﻿@page "/"
+@inject NavigationManager navManag
 
-<PageTitle>Index</PageTitle>
+<PageTitle>Efraín G. R.</PageTitle>
 
 <center><h1>Efraín Girón Romero</h1></center>
 
@@ -11,17 +12,25 @@
     I am not sure what to put here, so you can check out my social media and ask anything or leave a suggestion.
 </p>
 
-<h3 class="mt-4">Contact Info.</h3>
+<h3 class="mt-2">Contact Info.</h3>
 <div class="list-group">  
+    <Link To="https://github.com/biosh0KEd" Target="Target.Blank" Class="list-group-item list-group-item-action">
+    <img src="https://img.icons8.com/ios-glyphs/30/000000/github.png" width="30" height="30" alt="github"/>
+        GitHub
+    </Link>
+
     <Link To="mailto:a19310354@live.ceti.mx" Target="Target.Blank" Class="list-group-item list-group-item-action">
+    <img src="https://img.icons8.com/ios-filled/50/000000/circled-envelope.png" width="30" height="30" alt="email" />
         Email
     </Link>
 
     <Link To="https://www.linkedin.com/in/biosh0ked/" Target="Target.Blank" Class="list-group-item list-group-item-action">
+    <img src="https://img.icons8.com/ios-filled/50/000000/linkedin-circled--v1.png" width="30" height="30" alt="linkedin" />
         LinkedIn
     </Link>
 
     <Link To="https://mobile.twitter.com/bioshoked" Target="Target.Blank" Class="list-group-item list-group-item-action">
+    <img src="https://img.icons8.com/ios-filled/50/000000/twitter-circled--v1.png" width="30" height="30" alt="twitter" />
         Twitter
     </Link>
 
@@ -30,48 +39,58 @@
     </Link>
 </div>
 
-<h3 class="mt-4">Skills</h3>
-<ol class="list-group">
-    <li class="list-group-item d-flex justify-content-between align-items-start">
+<h3 class="mt-2">Skills</h3>
+<ol class="list-group mb-2">
+    <li class="list-group-item d-flex justify-content-between align-items-start skill-links" @onclick="@(() => navManag.NavigateTo("/Frontend"))">
         <div class="ms-2 me-auto w-100">
             <div class="fw-bold">Frontend</div>
-            <Progress Value="75" Animated Striped />
+            <Progress Value="@frontPercent" Animated Striped />
         </div>
-        <span class="badge bg-primary rounded-pill">14</span>
+        <span class="badge bg-primary rounded-pill">@frontPercent</span>
     </li>
-    <li class="list-group-item d-flex justify-content-between align-items-start">
+    <li class="list-group-item d-flex justify-content-between align-items-start skill-links" @onclick="@(() => navManag.NavigateTo("/Backend"))">
         <div class="ms-2 me-auto w-100">
             <div class="fw-bold">Backend</div>
-            <Progress Value="75" Animated Striped />
+            <Progress Value="@backPercent" Animated Striped />
         </div>
-        <span class="badge bg-primary rounded-pill">14</span>
+        <span class="badge bg-primary rounded-pill">@backPercent</span>
     </li>   
-    <li class="list-group-item d-flex justify-content-between align-items-start">
+    <li class="list-group-item d-flex justify-content-between align-items-start skill-links" @onclick="@(() => navManag.NavigateTo("/Databases"))">
         <div class="ms-2 me-auto w-100">
             <div class="fw-bold">Database Administration</div>
-            <Progress Value="75" Animated Striped />
+            <Progress Value="@dbPercent" Animated Striped />
         </div>
-        <span class="badge bg-primary rounded-pill">14</span>
+        <span class="badge bg-primary rounded-pill">@dbPercent</span>
     </li>
-    <li class="list-group-item d-flex justify-content-between align-items-start">
+    <li class="list-group-item d-flex justify-content-between align-items-start skill-links" @onclick="@(() => navManag.NavigateTo("/Servers"))">
         <div class="ms-2 me-auto w-100">
             <div class="fw-bold">Server Administration</div>
-            <Progress Value="75" Animated Striped />
+            <Progress Value="@serverPercent" Animated Striped />
         </div>
-        <span class="badge bg-primary rounded-pill">14</span>
+        <span class="badge bg-primary rounded-pill">@serverPercent</span>
     </li>
-    <li class="list-group-item d-flex justify-content-between align-items-start">
+    <li class="list-group-item d-flex justify-content-between align-items-start skill-links" @onclick="@(() => navManag.NavigateTo("/Embedded"))">
         <div class="ms-2 me-auto w-100">
             <div class="fw-bold">Embedded Systems</div>
-            <Progress Value="75" Animated Striped />
+            <Progress Value="@embeddedPercent" Animated Striped />
         </div>
-        <span class="badge bg-primary rounded-pill">14</span>
+        <span class="badge bg-primary rounded-pill">@embeddedPercent</span>
     </li>
-    <li class="list-group-item d-flex justify-content-between align-items-start">
+    <li class="list-group-item d-flex justify-content-between align-items-start skill-links" @onclick="@(() => navManag.NavigateTo("/Security"))">
         <div class="ms-2 me-auto w-100">
             <div class="fw-bold">Cyber Security</div>
-            <Progress Value="75" Animated Striped />
+            <Progress Value="@securityPercent" Animated Striped />
         </div>
-        <span class="badge bg-primary rounded-pill">14</span>
+        <span class="badge bg-primary rounded-pill">@securityPercent</span>
     </li>
 </ol>
+
+
+@code {
+    private int frontPercent = 20;
+    private int backPercent = 25;
+    private int dbPercent = 15;
+    private int serverPercent = 25;
+    private int embeddedPercent = 5;
+    private int securityPercent = 5;
+}
