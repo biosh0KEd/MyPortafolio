@@ -1,0 +1,29 @@
+@page "/BlogPage/{title}/{url}"
+@inject HttpClient http
+@inject NavigationManager navManager
+
+<PageTitle>@title.Replace('-', ' ')</PageTitle>
+
+@if (loaded) {
+    @articulo
+}
+else {
+	<div class="spinner-border text-primary" role="status">
+	</div>
+}
+
+@code {
+    [Parameter]
+	public string url { get; set; }
+	[Parameter]
+    public string title { get; set; }
+	private bool loaded { get; set; } = false;
+	private MarkupString articulo { get; set; }
+	protected override async Task OnInitializedAsync()	
+	{
+		loaded = false;
+		var file = await http.GetStreamAsync($"data/posts/{url}.md");		
+		articulo = (MarkupString)Markdown.ToHtml(Utils.toString(file) ?? "");
+		loaded = true;
+	}
+}

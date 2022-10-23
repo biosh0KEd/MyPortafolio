@@ -10,5 +10,11 @@
             return $"/MyPortafolio{url}";
 #endif
         }
+
+        public static string toString(Stream obj)
+        {
+            using StreamReader reader = new StreamReader(obj);
+            return reader.ReadToEnd();
+        }
     }
 }
