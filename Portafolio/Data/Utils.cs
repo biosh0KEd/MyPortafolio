@@ -2,7 +2,7 @@
 {
     public class Utils
     {
-        public static string getURL(string url)
+        public static string GetUrl(string url)
         {
 #if DEBUG
             return url;
@@ -11,10 +11,17 @@
 #endif
         }
 
-        public static string toString(Stream obj)
+        public static string StreamtToString(Stream obj)
         {
-            using StreamReader reader = new StreamReader(obj);
+            using var reader = new StreamReader(obj);
             return reader.ReadToEnd();
         }
+
+        #region Skills
+
+        public const int PageTitleSize = 40;
+        public const int SectionTitleSize = 30;
+
+        #endregion
     }
 }

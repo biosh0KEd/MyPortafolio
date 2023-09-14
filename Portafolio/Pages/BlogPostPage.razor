@@ -1,11 +1,11 @@
 @page "/BlogPage/{title}/{url}"
-@inject HttpClient http
-@inject NavigationManager navManager
+@inject HttpClient Http
+@inject NavigationManager NavManager
 
-<PageTitle>@title.Replace('-', ' ')</PageTitle>
+<PageTitle>@Title.Replace('-', ' ')</PageTitle>
 
-@if (loaded) {
-    @articulo
+@if (Loaded) {
+    @Articulo
 }
 else {
 	<div class="spinner-border text-primary" role="status">
@@ -14,16 +14,16 @@ else {
 
 @code {
     [Parameter]
-	public string url { get; set; }
+	public string Url { get; set; }
 	[Parameter]
-    public string title { get; set; }
-	private bool loaded { get; set; } = false;
-	private MarkupString articulo { get; set; }
+    public string Title { get; set; }
+	private bool Loaded { get; set; } = false;
+	private MarkupString Articulo { get; set; }
 	protected override async Task OnInitializedAsync()	
 	{
-		loaded = false;
-		var file = await http.GetStreamAsync($"data/posts/{url}.md");		
-		articulo = (MarkupString)Markdown.ToHtml(Utils.toString(file) ?? "");
-		loaded = true;
+		Loaded = false;
+		var file = await Http.GetStreamAsync($"data/posts/{Url}.md");		
+		Articulo = (MarkupString)Markdown.ToHtml(Utils.StreamtToString(file) ?? "");
+		Loaded = true;
 	}
 }

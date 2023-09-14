@@ -1,6 +1,6 @@
 ﻿@page "/Blog"
-@inject HttpClient http
-@inject NavigationManager navManager
+@inject HttpClient Http
+@inject NavigationManager NavManager
 
 <PageTitle>Blog</PageTitle>
 
@@ -11,12 +11,13 @@
 
 <hr>
 
-@if (loaded) {
+@if (Loaded) {
 	<ListGroup Flush>
-		@foreach (JObject post in Posts)
+		@foreach (var jToken in Posts)
 		{
+			var post = (JObject)jToken;
 			<ListGroupItem>
-				<div class="list-group-item list-group-item-action" style="cursor: pointer;" @onclick="@(() => navManager.NavigateTo(Utils.getURL(((string)post["url"]))))">
+				<div class="list-group-item list-group-item-action" style="cursor: pointer;" @onclick="@(() => NavManager.NavigateTo(Utils.GetUrl(((string)post["url"]))))">
 					<Div Flex="Flex.JustifyContent.Between" Width="Width.Is100">
 						<Heading Size="HeadingSize.Is5" Margin="Margin.Is1.FromBottom">@((string)post["titulo"])</Heading>
 						<Small>@((string)post["fecha"])</Small>
@@ -35,12 +36,12 @@ else {
 }
 
 @code {
-	private JArray Posts { get; set; }	
-	private bool loaded { get; set; } = false;
+	private JArray Posts { get; set; } = new JArray();
+	private bool Loaded { get; set; }
 	protected override async Task OnInitializedAsync()	
 	{
-		loaded = false;
-		Posts = JArray.Parse(await http.GetStringAsync("data/posts.json"));
-		loaded = true;
+		Loaded = false;
+		Posts = JArray.Parse(await Http.GetStringAsync("data/posts.json"));
+		Loaded = true;
 	}
 }
