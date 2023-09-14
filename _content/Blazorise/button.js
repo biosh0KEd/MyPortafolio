@@ -1,4 +1,4 @@
-﻿import { getRequiredElement } from "./utilities.js?v=1.0.6.0";
+﻿import { getRequiredElement } from "./utilities.js?v=1.3.1.0";
 
 const _instances = [];
 
