@@ -3,7 +3,7 @@
 
 <PageTitle>Efraín G. R.</PageTitle>
 
-<center><h1>Efraín Girón Romero</h1></center>
+<div style="text-align: center;" ><h1>Efraín Girón Romero</h1></div>
 
 <h3 class="mt-4">Biography</h3>
 <p>
@@ -55,6 +55,20 @@
         </div>
         <span class="badge bg-primary rounded-pill">@BackPercent</span>
     </li>   
+    <li class="list-group-item d-flex justify-content-between align-items-start skill-links" @onclick="@(() => IrA("/MobileDesktop"))">
+        <div class="ms-2 me-auto w-100">
+            <div class="fw-bold">Mobile and Desktop</div>
+            <Progress Value="@MobileDeskPercent" Animated Striped />
+        </div>
+        <span class="badge bg-primary rounded-pill">@BackPercent</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-start skill-links" @onclick="@(() => IrA("/Cloud"))">
+            <div class="ms-2 me-auto w-100">
+                <div class="fw-bold">Cloud</div>
+                <Progress Value="@MobileDeskPercent" Animated Striped />
+            </div>
+            <span class="badge bg-primary rounded-pill">@CloudPercent</span>
+        </li>
     <li class="list-group-item d-flex justify-content-between align-items-start skill-links" @onclick="@(() => IrA("/Databases"))">
         <div class="ms-2 me-auto w-100">
             <div class="fw-bold">Database Administration</div>
@@ -89,6 +103,8 @@
 @code {
     private const int FrontPercent = 20;
     private const int BackPercent = 25;
+    private const int MobileDeskPercent = 15;
+    private const int CloudPercent = 25;
     private const int DbPercent = 15;
     private const int ServerPercent = 25;
     private const int EmbeddedPercent = 5;

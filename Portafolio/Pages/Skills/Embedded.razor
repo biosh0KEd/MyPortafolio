@@ -1,7 +1,35 @@
 ﻿@page "/Embedded"
+<PageTitle>Embedded Systems and IoT</PageTitle>
 
-<h3>Embedded</h3>
+<div class="d-flex titulo">	
+    <img src="https://img.icons8.com/external-solidglyph-m-oki-orlando/32/external-embedded-system-information-technology-solid-solidglyph-m-oki-orlando.png" 
+         alt="embedded" 
+         width="@Utils.PageTitleSize" 
+         height="@Utils.PageTitleSize"/>
+    <h3 class="ms-4">What I know about mbedded Systems and IoT.</h3>	
+</div>
 
-@code {
+<hr>
 
-}
+<!-- region Arduino -->
+<section style="margin: 20px 0;">
+    <div class="d-flex titulo">
+        <img src="https://img.icons8.com/color/48/arduino.png" 
+             width="@Utils.SectionTitleSize" 
+             height="@Utils.SectionTitleSize" 
+             alt="Arduino"/>
+        <h5 class="ms-4">Arduino</h5>
+    </div>
+
+    <small>Related work</small>
+    <div class="list-group">
+        @* <Link To="@(Utils.GetUrl("/Blog"))" Class="list-group-item list-group-item-action"> *@
+        @* 	My Developer Portfolio *@
+        @* </Link> *@
+    </div>
+</section>
+<!-- endregion -->
+
+<footer>
+    <small>Icons by <a href="https://icons8.com">Icons8</a></small>
+</footer>

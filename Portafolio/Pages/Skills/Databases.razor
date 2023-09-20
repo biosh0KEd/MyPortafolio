@@ -1,7 +1,55 @@
 ﻿@page "/Databases"
+<PageTitle>Databases</PageTitle>
 
-<h3>Databases</h3>
+<div class="d-flex titulo">	
+    <img src="https://img.icons8.com/external-prettycons-lineal-prettycons/49/external-databases-web-seo-prettycons-lineal-prettycons.png" 
+         alt="databases" 
+         width="@Utils.PageTitleSize" 
+         height="@Utils.PageTitleSize"/>
+    <h3 class="ms-4">What I know about Databases.</h3>	
+</div>
 
-@code {
+<hr>
 
-}
+<!-- region MySQL -->
+<section style="margin: 20px 0;">
+    <div class="d-flex titulo">
+        <img src="https://img.icons8.com/color/48/mysql-logo.png" 
+             width="@Utils.SectionTitleSize" 
+             height="@Utils.SectionTitleSize" 
+             alt="mysql"/>
+        <h5 class="ms-4">MySQL</h5>
+    </div>
+
+    <small>Related work</small>
+    <div class="list-group">
+        @* <Link To="@(Utils.GetUrl("/GoGDL"))" Class="list-group-item list-group-item-action"> *@
+        @*     GoGDL *@
+        @* </Link> *@
+    </div>
+</section>
+<!-- endregion -->
+
+<!-- region CosmosDB -->
+<section style="margin: 20px 0;">
+    <div class="d-flex titulo">
+        <img src="https://img.icons8.com/pastel-glyph/64/mars-planet.png" 
+             width="@Utils.SectionTitleSize" 
+             height="@Utils.SectionTitleSize" 
+             alt="cosmos-db"/>
+        <h5 class="ms-4">CosmosDB</h5>
+    </div>
+
+    <small>Related work</small>
+    <div class="list-group">
+        @* <Link To="@(Utils.GetUrl("/GoGDL"))" Class="list-group-item list-group-item-action"> *@
+        @*     GoGDL *@
+        @* </Link> *@
+    </div>
+</section>
+<!-- endregion -->
+
+<footer>
+    <small>Icons by <a href="https://icons8.com">Icons8</a></small>
+</footer>
+

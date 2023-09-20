@@ -1,41 +1,54 @@
 ﻿@page "/Backend"
-
 <PageTitle>Backend</PageTitle>
 
-<div class="d-flex titulo">
-	<img src="https://img.icons8.com/external-flaticons-lineal-flat-icons/64/000000/external-backend-computer-programming-flaticons-lineal-flat-icons.png" 
-	alt="backend" width="50" height="50" />
-	<h3 class="ms-4">What I know about Backend.</h3>
+<div class="d-flex titulo">	
+    <img src="https://img.icons8.com/external-flaticons-lineal-flat-icons/64/000000/external-backend-computer-programming-flaticons-lineal-flat-icons.png" 
+         alt="backend" 
+         width="@Utils.PageTitleSize" 
+         height="@Utils.PageTitleSize"/>
+    <h3 class="ms-4">What I know about Backend.</h3>	
 </div>
 
 <hr>
 
-<h4>Languages</h4>
+<!-- region C# -->
+<section style="margin: 20px 0;">
+    <div class="d-flex titulo">
+        <img src="https://img.icons8.com/color/48/000000/c-sharp-logo.png" 
+             width="@Utils.SectionTitleSize" 
+             height="@Utils.SectionTitleSize" 
+             alt="csharp"/>
+        <h5 class="ms-4">C#</h5>
+    </div>
 
-<div class="d-flex titulo">
-	<img src="https://img.icons8.com/color/48/000000/c-sharp-logo.png" alt="csharp" width="48" height="48" />
-	<h5 class="ms-4">C#</h5>
-</div>
+    <small>Related work</small>
+    <div class="list-group">
+        @* <Link To="@(Utils.GetUrl("/Blog"))" Class="list-group-item list-group-item-action"> *@
+        @* 	My Developer Portfolio *@
+        @* </Link> *@
+    </div>
+</section>
+<!-- endregion -->
 
-<p>I currently use it at my work.</p>
+<!-- region NodeJS -->
+<section style="margin: 20px 0;">
+    <div class="d-flex titulo">
+        <img src="https://img.icons8.com/color/48/nodejs.png" 
+             width="@Utils.SectionTitleSize" 
+             height="@Utils.SectionTitleSize" 
+             alt="nodejs"/>
+        <h5 class="ms-4">NodeJS</h5>
+    </div>
 
-<div class="list-group">
-	<Link To="@(Utils.GetUrl("/Blog"))" Class="list-group-item list-group-item-action">
-	My Developer Portfolio
-	</Link>
-</div>
+    <small>Related work</small>
+    <div class="list-group">
+        <Link To="@(Utils.GetUrl("/GoGDL"))" Class="list-group-item list-group-item-action">
+            GoGDL
+        </Link>
+    </div>
+</section>
+<!-- endregion -->
 
-
-
-<div class="d-flex titulo">
-	<img src="https://img.icons8.com/fluency/48/000000/node-js.png" width="48" height="48" alt="node" />
-	<h5 class="ms-4">NodeJS</h5>
-</div>
-
-<h6>Related work</h6>
-<div class="list-group">
-	<Link To="@(Utils.GetUrl("/GoGDL"))" Class="list-group-item list-group-item-action">
-	GoGDL
-    </Link>   
-</div>
-
+<footer>
+    <small>Icons by <a href="https://icons8.com">Icons8</a></small>
+</footer>

@@ -1,7 +1,54 @@
 ﻿@page "/Servers"
+<PageTitle>Servers</PageTitle>
 
-<h3>Servers</h3>
+<div class="d-flex titulo">	
+    <img src="https://img.icons8.com/wired/64/server.png" 
+         alt="servers" 
+         width="@Utils.PageTitleSize" 
+         height="@Utils.PageTitleSize"/>
+    <h3 class="ms-4">What I know about Server Administration.</h3>	
+</div>
 
-@code {
+<hr>
 
-}
+<!-- region Ubuntu -->
+<section style="margin: 20px 0;">
+    <div class="d-flex titulo">
+        <img src="https://img.icons8.com/color/48/ubuntu--v1.png" 
+             width="@Utils.SectionTitleSize" 
+             height="@Utils.SectionTitleSize" 
+             alt="ubuntu"/>
+        <h5 class="ms-4">Ubuntu Server</h5>
+    </div>
+
+    <small>Related work</small>
+    <div class="list-group">
+        @* <Link To="@(Utils.GetUrl("/Blog"))" Class="list-group-item list-group-item-action"> *@
+        @* 	My Developer Portfolio *@
+        @* </Link> *@
+    </div>
+</section>
+<!-- endregion -->
+
+<!-- region Bash Scripting -->
+<section style="margin: 20px 0;">
+    <div class="d-flex titulo">
+        <img src="https://img.icons8.com/fluency/48/bash.png"
+             width="@Utils.SectionTitleSize"
+             height="@Utils.SectionTitleSize"
+             alt="bash"/>
+        <h5 class="ms-4">Bash Scripting</h5>
+    </div>
+
+    <small>Related work</small>
+    <div class="list-group">
+        @* <Link To="@(Utils.GetUrl("/GoGDL"))" Class="list-group-item list-group-item-action"> *@
+        @*     GoGDL *@
+        @* </Link> *@
+    </div>
+</section>
+<!-- endregion -->
+
+<footer>
+    <small>Icons by <a href="https://icons8.com">Icons8</a></small>
+</footer>
