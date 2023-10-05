@@ -3,4 +3,22 @@ During my time working in "R&C Soluciones" I had the opportunity to renew the ol
 
 We used it to create support tickets, to manage our client's data and everything related with customer support.
 
-And in that process we came across a problem, with our main communication channel, WhatsApp.
+And in that process we came across a problem, with our main communication channel, WhatsApp. So we decided to create a chat system that would allow us to manage our customer support through WhatsApp and add everything else we needed.
+
+<img class="chat-image" src="images/posts/panel-soporte-chat.jpeg" alt="landing-page-image" width="100%"/>
+
+I added SignalR to update the chat in real time:
+
+[Tutorial: Get started with ASP.NET Core SignalR](https://learn.microsoft.com/en-us/aspnet/core/tutorials/signalr?view=aspnetcore-7.0&tabs=visual-studio)
+
+Most of the devexpress ASP.NET Core controls create the UI:
+
+[Devexpress ASP.NET Core Controls](https://demos.devexpress.com/aspnetcore/)
+
+I also used the Twilio API to send and receive messages from WhatsApp:
+
+[Twilio API for WhatsApp](https://www.twilio.com/whatsapp)
+
+With Azure Blob storage I added support for file sharing, and used the MediaStream Recording API to record audio:
+
+[MediaStream Recording API](https://developer.mozilla.org/en-US/docs/Web/API/MediaStream_Recording_API/Using_the_MediaStream_Recording_API)
