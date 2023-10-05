@@ -1,5 +1,17 @@
 [
     {
+        "url" : "/BlogPage/Comercia-Mobile-Maui/comercia-mobile-maui",
+        "fecha": "04/11/2023",
+        "titulo": "Some features of an ERP",
+        "descripcion" : "Creating some clients, products, and sales system using MAUI."
+    },
+    {
+        "url" : "/BlogPage/Panel-Soporte-Chat/panel-soporte-chat",
+        "fecha": "04/11/2023",
+        "titulo": "Making a Chat",
+        "descripcion" : "Using WhatsApp API to give a better customer service."
+    },
+    {
         "url" : "/BlogPage/Making-My-Portfolio/making-portfolio",
         "fecha": "22/10/2022",
         "titulo": "Making my portfolio",
