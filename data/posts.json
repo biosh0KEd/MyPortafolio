@@ -1,8 +1,14 @@
 [
     {
+        "url" : "/BlogPage/Comercia-Offline-WPF/comercia-offline-wpf",
+        "fecha": "05/11/2023",
+        "titulo": "Some features of an ERP using WPF",
+        "descripcion" : "Creating some sale notes, visualizing clients, products and prices system using WPF."
+    },
+    {
         "url" : "/BlogPage/Comercia-Mobile-Maui/comercia-mobile-maui",
         "fecha": "04/11/2023",
-        "titulo": "Some features of an ERP",
+        "titulo": "Some features of an ERP using Maui",
         "descripcion" : "Creating some clients, products, and sales system using MAUI."
     },
     {
