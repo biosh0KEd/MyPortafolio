@@ -27,7 +27,7 @@ jobs:
       uses: SteveSandersonMS/ghaction-rewrite-base-href@v1
       with:
         html_path: /home/runner/work/MyPortafolio/MyPortafolio/Portafolio/bin/Release/net7.0/publish/wwwroot/index.html
-        base_href: MyPortafolio
+        base_href: /MyPortafolio/
         
     # add .nojekyll file to tell GitHub pages to not treat this as a Jekyll project. (Allow files and folders starting with an underscore)
     - name: Add .nojekyll file
