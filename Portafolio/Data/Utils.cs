@@ -11,7 +11,7 @@
 #endif
         }
 
-        public static string StreamtToString(Stream obj)
+        public static string StreamToString(Stream obj)
         {
             using var reader = new StreamReader(obj);
             return reader.ReadToEnd();

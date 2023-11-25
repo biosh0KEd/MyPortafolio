@@ -1,0 +1,32 @@
+@page "/ProjectPage/{title}/{url}"
+@inject HttpClient Http
+@inject NavigationManager NavManager
+
+<PageTitle>@Title.Replace('-', ' ')</PageTitle>
+
+@if (Loaded) {
+    @Articulo
+}
+else {
+    <section class="spinner-center-section">
+        <div class="spinner-border text-primary spinner-style" role="status">
+            <span class="sr-only"></span>
+        </div>
+    </section>
+}
+
+@code {
+    [Parameter]
+    public string Url { get; set; }
+    [Parameter]
+    public string Title { get; set; }
+    private bool Loaded { get; set; } = false;
+    private MarkupString Articulo { get; set; }
+    protected override async Task OnInitializedAsync()	
+    {
+        Loaded = false;
+        var file = await Http.GetStreamAsync($"data/projects/{Url}.md");		
+        Articulo = (MarkupString)Markdown.ToHtml(Utils.StreamToString(file) ?? "");
+        Loaded = true;
+    }
+}

@@ -26,7 +26,7 @@ else {
 	{
 		Loaded = false;
 		var file = await Http.GetStreamAsync($"data/posts/{Url}.md");		
-		Articulo = (MarkupString)Markdown.ToHtml(Utils.StreamtToString(file) ?? "");
+		Articulo = (MarkupString)Markdown.ToHtml(Utils.StreamToString(file) ?? "");
 		Loaded = true;
 	}
 }
