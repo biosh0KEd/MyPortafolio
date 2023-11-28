@@ -1,4 +1,5 @@
-## GoGDL <img src="images/Logo.webp" alt="logo" width="50" height="50" />
+## <img src="images/Logo.webp" alt="logo" width="50" height="50" /> GoGDL
+<p><small>Last Updated: November 27, 2023</small></p>
 <hr>
 
 GoGDL is a PWA (Progresive web application) made in Angular with as a school project, it is a place where you can find recreation places something like Yelp.
