@@ -1,71 +1,82 @@
 @page "/Cloud"
 <PageTitle>Cloud</PageTitle>
+@if (Loaded)
+{
 
-<div class="d-flex titulo">	
-    <img src="https://img.icons8.com/sf-regular/48/cloud.png" alt="frontend" width="@Utils.PageTitleSize" height="@Utils.PageTitleSize"/>
-    <h3 class="ms-4">What I know about Cloud.</h3>	
-</div>
-
-<hr>
-
-<!-- region Firebase -->
-<section style="margin: 20px 0;">
-    <div class="d-flex titulo">
-        <img src="https://img.icons8.com/color/48/firebase.png" 
-             width="@Utils.SectionTitleSize" 
-             height="@Utils.SectionTitleSize" 
-             alt="firebase"/>
-        <h5 class="ms-4">Firebase</h5>
+    <div class="d-flex titulo">	
+        <img src="https://img.icons8.com/sf-regular/48/cloud.png" alt="frontend" width="@Utils.PageTitleSize" height="@Utils.PageTitleSize"/>
+        <h3 class="ms-4">What I know about Cloud.</h3>	
     </div>
 
-    <small>Related work</small>
-    <div class="list-group skills-lists">
-        <Link To="@(Utils.GetUrl("/ProjectPage/GoGDL/gogdl-summary"))" Class="list-group-item list-group-item-action">
-            GoGDL
-        </Link>
-    </div>
-</section>
-<!-- endregion -->
+    <hr>
 
-<!-- region Google Cloud -->
-<section style="margin: 20px 0;">
-    <div class="d-flex titulo">
-        <img src="https://img.icons8.com/color/48/google-cloud.png" 
-             width="@Utils.SectionTitleSize" 
-             height="@Utils.SectionTitleSize" 
-             alt="google-cloud"/>
-        <h5 class="ms-4">Google Cloud</h5>
-    </div>
+    <!-- region Firebase -->
+    <section style="margin: 20px 0;">
+        <div class="d-flex titulo">
+            <img src="https://img.icons8.com/color/48/firebase.png" 
+                 width="@Utils.SectionTitleSize" 
+                 height="@Utils.SectionTitleSize" 
+                 alt="firebase"/>
+            <h5 class="ms-4">Firebase</h5>
+        </div>
 
-    <small>Related work</small>
-    <div class="list-group skills-lists">
-        <Link To="@(Utils.GetUrl("/ProjectPage/GoGDL/gogdl-summary"))" Class="list-group-item list-group-item-action">
-            GoGDL
-        </Link>
-    </div>
-</section>
-<!-- endregion -->
+        <small>Related work</small>
+        
+    </section>
+    <!-- endregion -->
 
-<!-- region Azure -->
-<section style="margin: 20px 0;">
-    <div class="d-flex titulo">
-        <img src="https://img.icons8.com/fluency/48/azure-1.png" 
-             width="@Utils.SectionTitleSize" 
-             height="@Utils.SectionTitleSize" 
-             alt="azure"/>
-        <h5 class="ms-4">Azure</h5>
-    </div>
+    <!-- region Google Cloud -->
+    <section style="margin: 20px 0;">
+        <div class="d-flex titulo">
+            <img src="https://img.icons8.com/color/48/google-cloud.png" 
+                 width="@Utils.SectionTitleSize" 
+                 height="@Utils.SectionTitleSize" 
+                 alt="google-cloud"/>
+            <h5 class="ms-4">Google Cloud</h5>
+        </div>
 
-    <small>Related work</small>
-    <div class="list-group skills-lists">
-        @* <Link To="@(Utils.GetUrl("/GoGDL"))" Class="list-group-item list-group-item-action"> *@
-        @*     GoGDL *@
-        @* </Link> *@
-    </div>
-</section>
-<!-- endregion -->
+        <small>Related work</small>
+        
+    </section>
+    <!-- endregion -->
+
+    <!-- region Azure -->
+    <section style="margin: 20px 0;">
+        <div class="d-flex titulo">
+            <img src="https://img.icons8.com/fluency/48/azure-1.png" 
+                 width="@Utils.SectionTitleSize" 
+                 height="@Utils.SectionTitleSize" 
+                 alt="azure"/>
+            <h5 class="ms-4">Azure</h5>
+        </div>
+
+        <small>Related work</small>
+        
+    </section>
+    <!-- endregion -->
 
 
-<footer>
-    <small>Icons by <a href="https://icons8.com">Icons8</a></small>
-</footer>
+
+    <footer>
+        <small>Icons by <a href="https://icons8.com">Icons8</a></small>
+    </footer>
+}
+else
+{
+    <section class="spinner-center-section">
+        <div class="spinner-border text-primary spinner-style" role="status">
+            <span class="sr-only"></span>
+        </div>
+    </section>
+}
+
+@code {
+    private bool Loaded { get; set; } = false;
+    
+    protected override async Task OnInitializedAsync()
+    {
+        Loaded = false;
+        await Task.Delay(1000);
+        Loaded = true;
+    }
+}

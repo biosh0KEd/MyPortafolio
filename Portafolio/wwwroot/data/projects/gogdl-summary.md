@@ -13,6 +13,8 @@ We created this web app because we needed a project to get our technician degree
 ### Technologies
 <hr>
 
+- Angular
+  - We used Angular as our main framework because of the modularity and the ease of use.
 - Firebase
   - We used Firebase for most of the things we did, thing like the hosting of the website, authentication, data storage and Firebase Functions to send notifications to our users.
 - SendGrid

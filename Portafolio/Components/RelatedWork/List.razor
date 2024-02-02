@@ -1,0 +1,14 @@
+<div class="list-group skills-lists">
+    <ListGroup>
+        @foreach (var jToken in Posts)
+        {
+            var post = (JObject)jToken;
+            <ListItem Post="post"/>
+        }	
+    </ListGroup>
+</div>
+
+@code {
+    [Parameter]
+    public required JArray Posts { get; set; }
+}

@@ -1,54 +1,79 @@
 ﻿@page "/Backend"
+@using Portafolio.Services
+@using Portafolio.Components.RelatedWork
+
+@inject IJSRuntime JsRuntime
+@inject IPostListService PostListService
+@inject NavigationManager NavManager
+
 <PageTitle>Backend</PageTitle>
 
-<div class="d-flex titulo">	
-    <img src="https://img.icons8.com/external-flaticons-lineal-flat-icons/64/000000/external-backend-computer-programming-flaticons-lineal-flat-icons.png" 
-         alt="backend" 
-         width="@Utils.PageTitleSize" 
-         height="@Utils.PageTitleSize"/>
-    <h3 class="ms-4">What I know about Backend.</h3>	
-</div>
-
-<hr>
-
-<!-- region C# -->
-<section style="margin: 20px 0;">
-    <div class="d-flex titulo">
-        <img src="https://img.icons8.com/color/48/000000/c-sharp-logo.png" 
-             width="@Utils.SectionTitleSize" 
-             height="@Utils.SectionTitleSize" 
-             alt="csharp"/>
-        <h5 class="ms-4">C#</h5>
+@if (Loaded) {
+    <div class="d-flex titulo">	
+        <img src="https://img.icons8.com/external-flaticons-lineal-flat-icons/64/000000/external-backend-computer-programming-flaticons-lineal-flat-icons.png" 
+             alt="backend" 
+             width="@Utils.PageTitleSize" 
+             height="@Utils.PageTitleSize"/>
+        <h3 class="ms-4">What I know about Backend.</h3>	
     </div>
 
-    <small>Related work</small>
-    <div class="list-group skills-lists">
-        @* <Link To="@(Utils.GetUrl("/Blog"))" Class="list-group-item list-group-item-action"> *@
-        @* 	My Developer Portfolio *@
-        @* </Link> *@
-    </div>
-</section>
-<!-- endregion -->
+    <hr>
 
-<!-- region NodeJS -->
-<section style="margin: 20px 0;">
-    <div class="d-flex titulo">
-        <img src="https://img.icons8.com/color/48/nodejs.png" 
-             width="@Utils.SectionTitleSize" 
-             height="@Utils.SectionTitleSize" 
-             alt="nodejs"/>
-        <h5 class="ms-4">NodeJS</h5>
-    </div>
+    <!-- region C# -->
+    <section style="margin: 20px 0;">
+        <div class="d-flex titulo">
+            <img src="https://img.icons8.com/color/48/000000/c-sharp-logo.png" 
+                 width="@Utils.SectionTitleSize" 
+                 height="@Utils.SectionTitleSize" 
+                 alt="csharp"/>
+            <h5 class="ms-4">C#</h5>
+        </div>
 
-    <small>Related work</small>
-    <div class="list-group skills-lists">
-        <Link To="@(Utils.GetUrl("/ProjectPage/GoGDL/gogdl-summary"))" Class="list-group-item list-group-item-action">
-            GoGDL
-        </Link>
-    </div>
-</section>
-<!-- endregion -->
+        <small>Related work</small>
+        <List Posts="@CSharpPosts"/>
+    </section>
+    <!-- endregion -->
 
-<footer>
-    <small>Icons by <a href="https://icons8.com">Icons8</a></small>
-</footer>
+    <!-- region NodeJS -->
+    <section style="margin: 20px 0;">
+        <div class="d-flex titulo">
+            <img src="https://img.icons8.com/color/48/nodejs.png" 
+                 width="@Utils.SectionTitleSize" 
+                 height="@Utils.SectionTitleSize" 
+                 alt="nodejs"/>
+            <h5 class="ms-4">NodeJS</h5>
+        </div>
+
+        <small>Related work</small>
+        <List Posts="@NodeJsPosts"/>
+    </section>
+    <!-- endregion -->
+
+    <footer>
+        <small>Icons by <a href="https://icons8.com">Icons8</a></small>
+    </footer>
+}
+else {
+    <section class="spinner-center-section">
+        <div class="spinner-border text-primary spinner-style" role="status">
+            <span class="sr-only"></span>
+        </div>
+    </section>
+}
+
+
+@code {
+    private bool Loaded { get; set; } = false;
+    private JArray CSharpPosts { get; set; } = [];
+    private JArray NodeJsPosts { get; set; } = [];
+    
+    protected override async Task OnInitializedAsync()
+    {
+        Loaded = false;
+        //JsRuntime.InvokeVoidAsync("console.log", "Backend page initialized.");
+        CSharpPosts = await PostListService.GetPostsByTech("C#");
+        NodeJsPosts = await PostListService.GetPostsByTech("NodeJS");
+        Loaded = true;
+    }
+
+}

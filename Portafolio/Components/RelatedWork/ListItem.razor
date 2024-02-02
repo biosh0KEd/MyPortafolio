@@ -1,0 +1,20 @@
+@inject NavigationManager NavManager
+
+<ListGroupItem Style="border-radius: 10px; border: none;">
+    <div class="list-group-item list-group-item-action" 
+         style="cursor: pointer; border-radius: 10px;" 
+         @onclick="@(() => NavManager.NavigateTo(Utils.GetUrl(((string)Post["url"])!)))">
+        <Div Flex="Flex.JustifyContent.Between" Width="Width.Is100">
+            <Heading Size="HeadingSize.Is5" Margin="Margin.Is1.FromBottom">@((string)Post["titulo"]!)</Heading>
+            <Small>@((string)Post["fecha"]!)</Small>
+        </Div>
+        <Paragraph Margin="Margin.Is1.FromBottom">
+            @((string)Post["descripcion"]!)
+        </Paragraph>			
+    </div>		
+</ListGroupItem>
+
+@code {
+    [Parameter]
+    public required JObject Post { get; set; }
+}
