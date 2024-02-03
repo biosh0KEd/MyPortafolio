@@ -1,35 +1,59 @@
 ﻿@page "/Embedded"
+@using Portafolio.Services
+@using Portafolio.Components.RelatedWork
+@inject IPostListService PostListService
+
 <PageTitle>Embedded Systems and IoT</PageTitle>
 
-<div class="d-flex titulo">	
-    <img src="https://img.icons8.com/external-solidglyph-m-oki-orlando/32/external-embedded-system-information-technology-solid-solidglyph-m-oki-orlando.png" 
-         alt="embedded" 
-         width="@Utils.PageTitleSize" 
-         height="@Utils.PageTitleSize"/>
-    <h3 class="ms-4">What I know about mbedded Systems and IoT.</h3>	
-</div>
-
-<hr>
-
-<!-- region Arduino -->
-<section style="margin: 20px 0;">
-    <div class="d-flex titulo">
-        <img src="https://img.icons8.com/color/48/arduino.png" 
-             width="@Utils.SectionTitleSize" 
-             height="@Utils.SectionTitleSize" 
-             alt="Arduino"/>
-        <h5 class="ms-4">Arduino</h5>
+@if (Loaded)
+{
+    <div class="d-flex titulo">	
+        <img src="https://img.icons8.com/external-solidglyph-m-oki-orlando/32/external-embedded-system-information-technology-solid-solidglyph-m-oki-orlando.png" 
+             alt="embedded" 
+             width="@Utils.PageTitleSize" 
+             height="@Utils.PageTitleSize"/>
+        <h3 class="ms-4">What I know about mbedded Systems and IoT.</h3>	
     </div>
 
-    <small>Related work</small>
-    <div class="list-group skills-lists">
-        @* <Link To="@(Utils.GetUrl("/Blog"))" Class="list-group-item list-group-item-action"> *@
-        @* 	My Developer Portfolio *@
-        @* </Link> *@
-    </div>
-</section>
-<!-- endregion -->
+    <hr>
 
-<footer>
-    <small>Icons by <a href="https://icons8.com">Icons8</a></small>
-</footer>
+    <!-- region Arduino -->
+    <section style="margin: 20px 0;">
+        <div class="d-flex titulo">
+            <img src="https://img.icons8.com/color/48/arduino.png" 
+                 width="@Utils.SectionTitleSize" 
+                 height="@Utils.SectionTitleSize" 
+                 alt="Arduino"/>
+            <h5 class="ms-4">Arduino</h5>
+        </div>
+
+        <small>Related work</small>
+        <List Posts="@ArduinoPosts"/>
+    </section>
+    <!-- endregion -->
+
+    <footer>
+        <small>Icons by <a href="https://icons8.com">Icons8</a></small>
+    </footer>
+}
+else
+{
+    <section class="spinner-center-section">
+        <div class="spinner-border text-primary spinner-style" role="status">
+            <span class="sr-only"></span>
+        </div>
+    </section>
+}
+
+
+@code {
+    private bool Loaded { get; set; } = false;
+    private JArray ArduinoPosts { get; set; } = [];
+    
+    protected override async Task OnInitializedAsync()
+    {
+        Loaded = false;
+        ArduinoPosts = await PostListService.GetPostsByTech("Arduino");
+        Loaded = true;
+    }
+}

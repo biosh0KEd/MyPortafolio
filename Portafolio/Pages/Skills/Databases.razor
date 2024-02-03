@@ -1,55 +1,74 @@
 ﻿@page "/Databases"
+@using Portafolio.Services
+@using Portafolio.Components.RelatedWork
+@inject IPostListService PostListService
+
 <PageTitle>Databases</PageTitle>
 
-<div class="d-flex titulo">	
-    <img src="https://img.icons8.com/external-prettycons-lineal-prettycons/49/external-databases-web-seo-prettycons-lineal-prettycons.png" 
-         alt="databases" 
-         width="@Utils.PageTitleSize" 
-         height="@Utils.PageTitleSize"/>
-    <h3 class="ms-4">What I know about Databases.</h3>	
-</div>
-
-<hr>
-
-<!-- region MySQL -->
-<section style="margin: 20px 0;">
-    <div class="d-flex titulo">
-        <img src="https://img.icons8.com/color/48/mysql-logo.png" 
-             width="@Utils.SectionTitleSize" 
-             height="@Utils.SectionTitleSize" 
-             alt="mysql"/>
-        <h5 class="ms-4">MySQL</h5>
+@if (Loaded)
+{
+    <div class="d-flex titulo">	
+        <img src="https://img.icons8.com/external-prettycons-lineal-prettycons/49/external-databases-web-seo-prettycons-lineal-prettycons.png" 
+             alt="databases" 
+             width="@Utils.PageTitleSize" 
+             height="@Utils.PageTitleSize"/>
+        <h3 class="ms-4">What I know about Databases.</h3>	
     </div>
 
-    <small>Related work</small>
-    <div class="list-group skills-lists">
-        @* <Link To="@(Utils.GetUrl("/GoGDL"))" Class="list-group-item list-group-item-action"> *@
-        @*     GoGDL *@
-        @* </Link> *@
-    </div>
-</section>
-<!-- endregion -->
+    <hr>
 
-<!-- region CosmosDB -->
-<section style="margin: 20px 0;">
-    <div class="d-flex titulo">
-        <img src="https://img.icons8.com/pastel-glyph/64/mars-planet.png" 
-             width="@Utils.SectionTitleSize" 
-             height="@Utils.SectionTitleSize" 
-             alt="cosmos-db"/>
-        <h5 class="ms-4">CosmosDB</h5>
-    </div>
+    <!-- region MySQL -->
+    <section style="margin: 20px 0;">
+        <div class="d-flex titulo">
+            <img src="https://img.icons8.com/color/48/mysql-logo.png" 
+                 width="@Utils.SectionTitleSize" 
+                 height="@Utils.SectionTitleSize" 
+                 alt="mysql"/>
+            <h5 class="ms-4">MySQL</h5>
+        </div>
 
-    <small>Related work</small>
-    <div class="list-group skills-lists">
-        @* <Link To="@(Utils.GetUrl("/GoGDL"))" Class="list-group-item list-group-item-action"> *@
-        @*     GoGDL *@
-        @* </Link> *@
-    </div>
-</section>
-<!-- endregion -->
+        <small>Related work</small>
+        <List Posts="@MySqlPosts"/>
+    </section>
+    <!-- endregion -->
 
-<footer>
-    <small>Icons by <a href="https://icons8.com">Icons8</a></small>
-</footer>
+    <!-- region CosmosDB -->
+    <section style="margin: 20px 0;">
+        <div class="d-flex titulo">
+            <img src="https://img.icons8.com/pastel-glyph/64/mars-planet.png" 
+                 width="@Utils.SectionTitleSize" 
+                 height="@Utils.SectionTitleSize" 
+                 alt="cosmos-db"/>
+            <h5 class="ms-4">CosmosDB</h5>
+        </div>
 
+        <small>Related work</small>
+        <List Posts="@CosmosDBPosts"/>
+    </section>
+    <!-- endregion -->
+
+    <footer>
+        <small>Icons by <a href="https://icons8.com">Icons8</a></small>
+    </footer>
+}
+else
+{
+    <section class="spinner-center-section">
+        <div class="spinner-border text-primary spinner-style" role="status">
+            <span class="sr-only"></span>
+        </div>
+    </section>
+}
+
+@code {
+    private bool Loaded { get; set; } = false;
+    private JArray MySqlPosts { get; set; } = [];
+    private JArray CosmosDBPosts { get; set; } = [];
+    protected override async Task OnInitializedAsync()
+    {
+        Loaded = false;
+        MySqlPosts = await PostListService.GetPostsByTech("MySQL");
+        CosmosDBPosts = await PostListService.GetPostsByTech("CosmosDB");
+        Loaded = true;
+    }
+}

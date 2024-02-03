@@ -1,54 +1,76 @@
 ﻿@page "/Servers"
+@using Portafolio.Services
+@using Portafolio.Components.RelatedWork
+@inject IPostListService PostListService
+
 <PageTitle>Servers</PageTitle>
 
-<div class="d-flex titulo">	
-    <img src="https://img.icons8.com/wired/64/server.png" 
-         alt="servers" 
-         width="@Utils.PageTitleSize" 
-         height="@Utils.PageTitleSize"/>
-    <h3 class="ms-4">What I know about Server Administration.</h3>	
-</div>
 
-<hr>
-
-<!-- region Ubuntu -->
-<section style="margin: 20px 0;">
-    <div class="d-flex titulo">
-        <img src="https://img.icons8.com/color/48/ubuntu--v1.png" 
-             width="@Utils.SectionTitleSize" 
-             height="@Utils.SectionTitleSize" 
-             alt="ubuntu"/>
-        <h5 class="ms-4">Ubuntu Server</h5>
+@if (Loaded)
+{
+    <div class="d-flex titulo">	
+        <img src="https://img.icons8.com/wired/64/server.png" 
+             alt="servers" 
+             width="@Utils.PageTitleSize" 
+             height="@Utils.PageTitleSize"/>
+        <h3 class="ms-4">What I know about Server Administration.</h3>	
     </div>
 
-    <small>Related work</small>
-    <div class="list-group skills-lists">
-        @* <Link To="@(Utils.GetUrl("/Blog"))" Class="list-group-item list-group-item-action"> *@
-        @* 	My Developer Portfolio *@
-        @* </Link> *@
-    </div>
-</section>
-<!-- endregion -->
+    <hr>
 
-<!-- region Bash Scripting -->
-<section style="margin: 20px 0;">
-    <div class="d-flex titulo">
-        <img src="https://img.icons8.com/fluency/48/bash.png"
-             width="@Utils.SectionTitleSize"
-             height="@Utils.SectionTitleSize"
-             alt="bash"/>
-        <h5 class="ms-4">Bash Scripting</h5>
-    </div>
+    <!-- region Ubuntu -->
+    <section style="margin: 20px 0;">
+        <div class="d-flex titulo">
+            <img src="https://img.icons8.com/color/48/ubuntu--v1.png" 
+                 width="@Utils.SectionTitleSize" 
+                 height="@Utils.SectionTitleSize" 
+                 alt="ubuntu"/>
+            <h5 class="ms-4">Ubuntu Server</h5>
+        </div>
 
-    <small>Related work</small>
-    <div class="list-group skills-lists">
-        @* <Link To="@(Utils.GetUrl("/GoGDL"))" Class="list-group-item list-group-item-action"> *@
-        @*     GoGDL *@
-        @* </Link> *@
-    </div>
-</section>
-<!-- endregion -->
+        <small>Related work</small>
+        <List Posts="@UbuntuServer"/>
+    </section>
+    <!-- endregion -->
 
-<footer>
-    <small>Icons by <a href="https://icons8.com">Icons8</a></small>
-</footer>
+    <!-- region Bash Scripting -->
+    <section style="margin: 20px 0;">
+        <div class="d-flex titulo">
+            <img src="https://img.icons8.com/fluency/48/bash.png"
+                 width="@Utils.SectionTitleSize"
+                 height="@Utils.SectionTitleSize"
+                 alt="bash"/>
+            <h5 class="ms-4">Bash Scripting</h5>
+        </div>
+
+        <small>Related work</small>
+        <List Posts="@BashScripting"/>
+    </section>
+    <!-- endregion -->
+
+    <footer>
+        <small>Icons by <a href="https://icons8.com">Icons8</a></small>
+    </footer>
+}
+else
+{
+    <section class="spinner-center-section">
+        <div class="spinner-border text-primary spinner-style" role="status">
+            <span class="sr-only"></span>
+        </div>
+    </section>
+}
+
+@code {
+    private bool Loaded { get; set; } = false;
+    private JArray BashScripting { get; set; } = [];
+    private JArray UbuntuServer { get; set; } = [];
+	
+    protected override async Task OnInitializedAsync()
+    {
+        Loaded = false;
+        BashScripting = await PostListService.GetPostsByTech("Bash Scripting");
+        UbuntuServer = await PostListService.GetPostsByTech("Ubuntu Server");
+        Loaded = true;
+    }
+}

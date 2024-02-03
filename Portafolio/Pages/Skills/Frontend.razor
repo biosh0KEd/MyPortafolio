@@ -1,61 +1,80 @@
 ﻿@page "/Frontend"
+@using Portafolio.Services
+@using Portafolio.Components.RelatedWork
+@inject IPostListService PostListService
+
 <PageTitle>Frontend</PageTitle>
 
-<div class="d-flex titulo">	
-	<img src="https://img.icons8.com/ios/50/000000/code.png" alt="frontend" width="@Utils.PageTitleSize" height="@Utils.PageTitleSize"/>
-	<h3 class="ms-4">What I know about Frontend.</h3>	
-</div>
-
-<hr>
-
-<!-- region Angular -->
-<section style="margin: 20px 0;">
-	<div class="d-flex titulo">
-		<img src="https://img.icons8.com/color/48/000000/angularjs.png" width="@Utils.SectionTitleSize" height="@Utils.SectionTitleSize" alt="angular" />
-		<h5 class="ms-4">Angular</h5>
+@if (Loaded)
+{
+	<div class="d-flex titulo">	
+		<img src="https://img.icons8.com/ios/50/000000/code.png" alt="frontend" width="@Utils.PageTitleSize" height="@Utils.PageTitleSize"/>
+		<h3 class="ms-4">What I know about Frontend.</h3>	
 	</div>
 
-	<small>Related work</small>
-	<div class="list-group skills-lists">
-		<Link To="@(Utils.GetUrl("/ProjectPage/GoGDL/gogdl-summary"))" Class="list-group-item list-group-item-action">
-			GoGDL
-		</Link>
-	</div>
-</section>
-<!-- endregion -->
+	<hr>
 
-<!-- region Blazor -->
-<section style="margin: 20px 0;">
-	<div class="d-flex titulo">
-		<img src="./icon-192.png" width="@Utils.SectionTitleSize" height="@Utils.SectionTitleSize" alt="blazor" />
-		<h5 class="ms-4">Blazor</h5>
-	</div>
+	<!-- region Angular -->
+	<section style="margin: 20px 0;">
+		<div class="d-flex titulo">
+			<img src="https://img.icons8.com/color/48/000000/angularjs.png" width="@Utils.SectionTitleSize" height="@Utils.SectionTitleSize" alt="angular" />
+			<h5 class="ms-4">Angular</h5>
+		</div>
 
-	<small>Related work</small>
-	<div class="list-group skills-lists">
-		<Link To="@(Utils.GetUrl("/Blog"))" Class="list-group-item list-group-item-action">
-			My Developer Portfolio
-		</Link>
-	</div>
-</section>
-<!-- endregion -->
+		<small>Related work</small>
+		<List Posts="@AngularPosts"/>
+	</section>
+	<!-- endregion -->
 
-<!-- region ASP.NET -->
-<section style="margin: 20px 0;">
-	<div class="d-flex titulo">
-		<img src="https://img.icons8.com/color/48/net-framework.png" width="@Utils.SectionTitleSize" height="@Utils.SectionTitleSize" alt="asp.net"/>
-		<h5 class="ms-4">ASP.NET</h5>
-	</div>
+	<!-- region Blazor -->
+	<section style="margin: 20px 0;">
+		<div class="d-flex titulo">
+			<img src="./icon-192.png" width="@Utils.SectionTitleSize" height="@Utils.SectionTitleSize" alt="blazor" />
+			<h5 class="ms-4">Blazor</h5>
+		</div>
 
-	<small>Related work</small>
-	<div class="list-group">
-		@* <Link To="@(Utils.GetUrl("/Blog"))" Class="list-group-item list-group-item-action"> *@
-		@* 	My Developer Portfolio *@
-		@* </Link> *@
-	</div>
-</section>
-<!-- endregion -->
+		<small>Related work</small>
+		<List Posts="@BlazorPosts"/>
+	</section>
+	<!-- endregion -->
 
-<footer>
-	<small>Icons by <a href="https://icons8.com">Icons8</a></small>
-</footer>
+	<!-- region ASP.NET -->
+	<section style="margin: 20px 0;">
+		<div class="d-flex titulo">
+			<img src="https://img.icons8.com/color/48/net-framework.png" width="@Utils.SectionTitleSize" height="@Utils.SectionTitleSize" alt="asp.net"/>
+			<h5 class="ms-4">ASP.NET</h5>
+		</div>
+
+		<small>Related work</small>
+		<List Posts="@AspNetPosts"/>
+	</section>
+	<!-- endregion -->
+
+	<footer>
+		<small>Icons by <a href="https://icons8.com">Icons8</a></small>
+	</footer>
+}
+else 
+{
+    <section class="spinner-center-section">
+        <div class="spinner-border text-primary spinner-style" role="status">
+            <span class="sr-only"></span>
+        </div>
+    </section>
+}
+
+@code {
+	private bool Loaded { get; set; } = false;
+	private JArray AngularPosts { get; set; } = [];
+	private JArray BlazorPosts { get; set; } = [];
+	private JArray AspNetPosts { get; set; } = [];
+	
+	protected override async Task OnInitializedAsync()
+	{
+		Loaded = false;
+		AngularPosts = await PostListService.GetPostsByTech("Angular");
+		BlazorPosts = await PostListService.GetPostsByTech("Blazor");
+		AspNetPosts = await PostListService.GetPostsByTech("ASP.NET");
+		Loaded = true;
+	}
+}
