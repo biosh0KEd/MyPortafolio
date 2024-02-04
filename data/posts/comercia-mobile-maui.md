@@ -8,7 +8,7 @@ When I started working in "R&C Soluciones" they already had a mobile App, it was
 <br>
 <br>
 
-### Technologies
+##### Technologies
 
 <hr>
 

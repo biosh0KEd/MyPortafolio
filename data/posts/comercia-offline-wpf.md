@@ -11,7 +11,7 @@ so we decided to create an offline desktop version of the web app, and I was in 
 <br>
 <br>
 
-### Technologies
+##### Technologies
 
 <hr>
 
