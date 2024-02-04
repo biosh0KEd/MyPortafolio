@@ -6,7 +6,7 @@ This is my portfolio, I created it to show my projects and my blog posts, I don'
 
 <br>
 
-### Technologies
+##### Technologies
 <hr>
 
 - Blazor

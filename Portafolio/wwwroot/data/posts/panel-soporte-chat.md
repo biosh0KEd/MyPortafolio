@@ -13,8 +13,7 @@ And in that process we came across a problem, with our main communication channe
 <br>
 <br>
 
-### Technologies
-
+##### Technologies
 <hr>
 
 - ASP.NET Core SignalR

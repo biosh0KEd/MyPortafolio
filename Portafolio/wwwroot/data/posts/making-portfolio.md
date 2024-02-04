@@ -8,7 +8,8 @@ And It will be great to create a StartUp out of a project I try in here.
 
 For me the most satisfying part of the development process is to write documentation, because it keeps your work organized, and it gives you a better perspective of what you are doing. That's why I wanted to make this for a log time, in order to get a better place where I can put all my creations and show the world what I have learned.
 
-### I was postponing this for a long time, but it was a very big mistake.
+##### I was postponing this for a long time, but it was a very big mistake.
+<hr>
 
 I always thought that I needed to learn more in order to be a better software developer, but I was wrong. I have forgotten a lot of things and that make me feel very bad, as if I was just wasting my time.
 

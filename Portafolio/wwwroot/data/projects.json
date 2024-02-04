@@ -3,7 +3,7 @@
     "url" : "/ProjectPage/GoGDL/gogdl-summary",
     "fecha": "6 years ago",
     "titulo": "GoGDL",
-    "descripcion" : "When I was in highschool i made a project to get a tecnichal title,\n\t\t\t\tthat project was a web page to find interesting places to eat, drink, etc.\n\t\t\t\tUnfortunately, we didn't continue with it.",
+    "descripcion" : "When I was in high school i made a project to get a tecnichal title,\n\t\t\t\tthat project was a web page to find interesting places to eat, drink, etc.\n\t\t\t\tUnfortunately, we didn't continue with it.",
     "techs" : [
       "Angular", 
       "Firebase", 
@@ -15,7 +15,7 @@
   },
   {
     "url" : "/ProjectPage/Portfolio/portfolio-summary",
-    "fecha": "Uder development",
+    "fecha": "Under development",
     "titulo": "Portfolio",
     "descripcion" : "Made with Blazor and hosted in github pages, this is my portfolio.\n\t\t\t\tI'm still working on it, so it's not finished yet.",
     "techs" : [

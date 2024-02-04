@@ -10,7 +10,7 @@ We created this web app because we needed a project to get our technician degree
 
 <br>
 
-### Technologies
+##### Technologies
 <hr>
 
 - Angular
@@ -24,7 +24,7 @@ We created this web app because we needed a project to get our technician degree
 
 <br>
 
-### Link
+##### Link
 <hr>
 
 [GoGdl.com](https://gogdl.com/about)

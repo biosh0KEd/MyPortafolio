@@ -1,10 +1,16 @@
 <div class="list-group skills-lists">
     <ListGroup>
+
+        @if (Posts.Count == 0)
+        {
+            <p class="no-work-text">Under development</p>
+        }
+
         @foreach (var jToken in Posts)
         {
             var post = (JObject)jToken;
             <ListItem Post="post"/>
-        }	
+        }
     </ListGroup>
 </div>
 
