@@ -1,0 +1,142 @@
+﻿@page "/"
+@inject NavigationManager navManag
+
+<PageTitle>Efraín G. R.</PageTitle>
+
+<div style="text-align: center;"><h1>Efraín Girón Romero</h1></div>
+
+<h3 class="mt-4">Biography</h3>
+<p>
+    I am a Mexican software developer currently working in Guadalajara, Jalisco.
+    Please forget the way I write in English, it's not my native language, but I will get better.
+    I am not sure what to put here, so you can check out my social media and ask anything or leave a suggestion.
+</p>
+
+<h3 class="mt-2">Contact Info.</h3>
+<div class="list-group">
+    <a href="https://github.com/biosh0KEd" target="_blank" rel="noopener noreferrer" class="list-group-item list-group-item-action">
+        <img src="https://img.icons8.com/ios-glyphs/30/000000/github.png" width="30" height="30" alt="github" />
+        GitHub
+    </a>
+
+    <a href="mailto:a19310354@live.ceti.mx" target="_blank" rel="noopener noreferrer" class="list-group-item list-group-item-action">
+        <img src="https://img.icons8.com/ios-filled/50/000000/circled-envelope.png" width="30" height="30" alt="email" />
+        Email
+    </a>
+
+    <a href="https://www.linkedin.com/in/biosh0ked/" target="_blank" rel="noopener noreferrer" class="list-group-item list-group-item-action">
+        <img src="https://img.icons8.com/ios-filled/50/000000/linkedin-circled--v1.png" width="30" height="30" alt="linkedin" />
+        LinkedIn
+    </a>
+
+    <a href="https://mobile.twitter.com/bioshoked" target="_blank" rel="noopener noreferrer" class="list-group-item list-group-item-action">
+        <img src="https://img.icons8.com/ios-filled/50/000000/twitter-circled--v1.png" width="30" height="30" alt="twitter" />
+        Twitter
+    </a>
+
+    <a href="https://platzi.com/p/biosh0Ed/" target="_blank" rel="noopener noreferrer" class="list-group-item list-group-item-action">
+        <img src="https://img.icons8.com/ios-filled/50/astronaut-helmet.png" width="30" height="30" alt="astronaut-helmet" />
+        Platzi
+    </a>
+
+    <a href="https://stackoverflow.com/users/9463074/efra%c3%adn-gir%c3%b3n-romero" target="_blank" rel="noopener noreferrer" class="list-group-item list-group-item-action">
+        <img src="https://img.icons8.com/sf-black/64/stackoverflow.png" width="30" height="30" alt="stack-overflow" />
+        Stack Overflow
+    </a>
+</div>
+
+<h3 class="mt-2">Skills</h3>
+<ol class="list-group mb-2">
+    <li class="list-group-item d-flex justify-content-between align-items-start skill-links" @onclick="@(() => IrA("/Frontend"))">
+        <div class="ms-2 me-auto w-100">
+            <div class="fw-bold">Frontend</div>
+            <div class="progress" role="progressbar" aria-label="Frontend" aria-valuemin="0" aria-valuemax="100" aria-valuenow="@FrontPercent">
+                <div class="progress-bar" style="width: @FrontPercent%;"></div>
+            </div>
+        </div>
+        <span class="badge bg-primary rounded-pill">@FrontPercent</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-start skill-links" @onclick="@(() => IrA("/Backend"))">
+        <div class="ms-2 me-auto w-100">
+            <div class="fw-bold">Backend</div>
+            <div class="progress" role="progressbar" aria-label="Backend" aria-valuemin="0" aria-valuemax="100" aria-valuenow="@BackPercent">
+                <div class="progress-bar" style="width: @BackPercent%;"></div>
+            </div>
+        </div>
+        <span class="badge bg-primary rounded-pill">@BackPercent</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-start skill-links" @onclick="@(() => IrA("/MobileDesktop"))">
+        <div class="ms-2 me-auto w-100">
+            <div class="fw-bold">Mobile and Desktop</div>
+            <div class="progress" role="progressbar" aria-label="Mobile and Desktop" aria-valuemin="0" aria-valuemax="100" aria-valuenow="@MobileDeskPercent">
+                <div class="progress-bar" style="width: @MobileDeskPercent%;"></div>
+            </div>
+        </div>
+        <span class="badge bg-primary rounded-pill">@BackPercent</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-start skill-links" @onclick="@(() => IrA("/Cloud"))">
+        <div class="ms-2 me-auto w-100">
+            <div class="fw-bold">Cloud</div>
+            <div class="progress" role="progressbar" aria-label="Cloud" aria-valuemin="0" aria-valuemax="100" aria-valuenow="@CloudPercent">
+                <div class="progress-bar" style="width: @CloudPercent%;"></div>
+            </div>
+        </div>
+        <span class="badge bg-primary rounded-pill">@CloudPercent</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-start skill-links" @onclick="@(() => IrA("/Databases"))">
+        <div class="ms-2 me-auto w-100">
+            <div class="fw-bold">Database Administration</div>
+            <div class="progress" role="progressbar" aria-label="Database Administration" aria-valuemin="0" aria-valuemax="100" aria-valuenow="@DbPercent">
+                <div class="progress-bar" style="width: @DbPercent%;"></div>
+            </div>
+        </div>
+        <span class="badge bg-primary rounded-pill">@DbPercent</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-start skill-links" @onclick="@(() => IrA("/Servers"))">
+        <div class="ms-2 me-auto w-100">
+            <div class="fw-bold">Server Administration</div>
+            <div class="progress" role="progressbar" aria-label="Server Administration" aria-valuemin="0" aria-valuemax="100" aria-valuenow="@ServerPercent">
+                <div class="progress-bar" style="width: @ServerPercent%;"></div>
+            </div>
+        </div>
+        <span class="badge bg-primary rounded-pill">@ServerPercent</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-start skill-links" @onclick="@(() => IrA("/Embedded"))">
+        <div class="ms-2 me-auto w-100">
+            <div class="fw-bold">Embedded Systems</div>
+            <div class="progress" role="progressbar" aria-label="Embedded Systems" aria-valuemin="0" aria-valuemax="100" aria-valuenow="@EmbeddedPercent">
+                <div class="progress-bar" style="width: @EmbeddedPercent%;"></div>
+            </div>
+        </div>
+        <span class="badge bg-primary rounded-pill">@EmbeddedPercent</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-start skill-links" @onclick="@(() => IrA("/Security"))">
+        <div class="ms-2 me-auto w-100">
+            <div class="fw-bold">Cyber Security</div>
+            <div class="progress" role="progressbar" aria-label="Cyber Security" aria-valuemin="0" aria-valuemax="100" aria-valuenow="@SecurityPercent">
+                <div class="progress-bar" style="width: @SecurityPercent%;"></div>
+            </div>
+        </div>
+        <span class="badge bg-primary rounded-pill">@SecurityPercent</span>
+    </li>
+</ol>
+
+@code {
+    private const int FrontPercent = 20;
+    private const int BackPercent = 20;
+    private const int MobileDeskPercent = 20;
+    private const int CloudPercent = 15;
+    private const int DbPercent = 15;
+    private const int ServerPercent = 1;
+    private const int EmbeddedPercent = 1;
+    private const int SecurityPercent = 1;
+
+    public void IrA(string url)
+    {
+#if DEBUG
+        navManag.NavigateTo(url);
+#else
+        navManag.NavigateTo($"/MyPortafolio{url}");
+#endif
+    }
+}

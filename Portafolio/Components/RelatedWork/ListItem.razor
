@@ -1,0 +1,16 @@
+@inject NavigationManager NavManager
+
+<div class="list-group-item list-group-item-action"
+     style="cursor: pointer; border-radius: 10px; border: none;"
+     @onclick="@(() => NavManager.NavigateTo(Utils.GetUrl(((string)Post["url"])!)))">
+    <div class="d-flex justify-content-between w-100">
+        <h5 class="mb-1">@((string)Post["titulo"]!)</h5>
+        <small>@((string)Post["fecha"]!)</small>
+    </div>
+    <p class="mb-1">@((string)Post["descripcion"]!)</p>
+</div>
+
+@code {
+    [Parameter]
+    public required JObject Post { get; set; }
+}
